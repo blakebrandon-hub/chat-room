@@ -1,0 +1,41 @@
+//Connect socket
+const socket = io.connect('http://localhost:8000');
+
+//Get DOM elements
+var message = document.getElementById('message');
+var btn = document.getElementById('send');
+var output = document.getElementById('output');
+var feedback = document.getElementById('feedback');
+var users = document.getElementById('users-online')
+
+//Emit Events
+if (name == ''){
+  var name = prompt('What is your name?');
+  socket.emit('username', {username: name});
+};
+
+btn.addEventListener('click', function(){
+  socket.emit('chat', {
+    message: message.value,
+    username: name
+  });
+});
+
+message.addEventListener('keypress', function(){
+  socket.emit('typing', {username: name})
+});
+
+//Listen for Events
+socket.on('chat', function(data){;
+  feedback.innerHTML = ''
+  output.innerHTML += '<p><b>' + data.username + '</b>: ' + data.message + '</p>'
+  message.value = '';
+});
+
+socket.on('username', function(data){
+  output.innerHTML += '<p><b>' + data.username + '</b> entered the room</p>'
+});
+
+socket.on('typing', function(data){
+  feedback.innerHTML = '<p><em>' + data.username + ' is typing a message...</em></p>';
+});

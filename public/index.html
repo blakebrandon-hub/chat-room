@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat Room</title>
+	<script src="/socket.io/socket.io.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div id="intro">
+	<h3>Chat Room with Socket.io<br><a href="https://github.com/blakebrandon-hub/chat-room">github.com/blakebrandon-hub/chat-room</a></h3><br>
+	</div>
+
+	<div id='my-chat'>
+
+		<div id="chat-window">
+			<div id="output"></div>
+      <div id='feedback'></div>
+		</div>
+
+		<input id="message" type="text" placeholder="message">
+		<button id="send">Send</button>
+
+	</div>
+
+
+	<script src="/app.js"></script>
+</body>
+</html>
