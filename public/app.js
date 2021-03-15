@@ -1,5 +1,5 @@
 //Connect socket
-const socket = io.connect('http://localhost:8000');
+const socket = io.connect('0.0.0.0:5000');
 
 //Get DOM elements
 var message = document.getElementById('message');
