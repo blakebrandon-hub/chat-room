@@ -2,12 +2,10 @@ const express = require('express');
 const app = express();
 const socket = require('socket.io');
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 
-const server = app.listen(port, function() {
-  console.log('Listening on port', port);
-})
-
+const server = app.listen(port, '0.0.0.0');
+                          
 //Static files
 app.use(express.static('public'));
 
